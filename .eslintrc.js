@@ -10,7 +10,6 @@ module.exports = {
       'node_modules',
       '.(css|scss|sass)$',
       '.json$',
-      'karma.conf.js',
     ],
     'parserOptions': {
         'sourceType': 'module',
@@ -19,6 +18,7 @@ module.exports = {
     'no-console': 1,
     'import/no-unresolved': 0,
     'import/default': 1,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["test/**", "webpack.config.js", "karma.conf.js"]}],
     'new-cap': 0,
   },
 };
