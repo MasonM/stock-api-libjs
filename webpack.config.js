@@ -33,7 +33,9 @@ const config = {
 };
 
 if (!prodEnv) {
-  config.plugins.push(new HtmlWebpackPlugin());
+  config.plugins.push(new HtmlWebpackPlugin({
+    template: 'src/index.ejs',
+  }));
 }
 
 module.exports = config;
