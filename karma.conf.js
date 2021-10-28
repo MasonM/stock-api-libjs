@@ -2,9 +2,10 @@
 const babelify = require('babelify');
 const browserifyBabalIstanbul = require('browserify-babel-istanbul');
 const isparta = require('isparta');
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 const karmaConfig = (config) => {
-  const customBrowsers = ['Chrome'];
+  const customBrowsers = ['ChromeHeadlessCustom'];
 
   config.set({
 
@@ -94,6 +95,17 @@ const karmaConfig = (config) => {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,
+
+    customLaunchers: {
+      ChromeHeadlessCustom: {
+          base: 'ChromeHeadless',
+          flags: [
+              '--remote-debugging-port=9222',
+              '--window-size=1920,1080',
+              '--no-sandbox',
+          ],
+      },
+  },
   });
 };
 

@@ -10,6 +10,7 @@ module.exports = {
       'node_modules',
       '.(css|scss|sass)$',
       '.json$',
+      'karma.conf.js',
     ],
     'parserOptions': {
         'sourceType': 'module',
